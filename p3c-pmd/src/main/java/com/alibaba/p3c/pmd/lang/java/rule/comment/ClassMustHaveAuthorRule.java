@@ -39,7 +39,7 @@ import net.sourceforge.pmd.lang.java.ast.Comment;
  */
 public class ClassMustHaveAuthorRule extends AbstractAliCommentRule {
 
-    private static final Pattern AUTHOR_PATTERN = Pattern.compile(".*@author.*",
+    private static final Pattern AUTHOR_PATTERN = Pattern.compile(".*@[Aa]uthor.*",
         Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 
     private static final String MESSAGE_KEY_PREFIX = "java.comment.ClassMustHaveAuthorRule.violation.msg";
@@ -48,9 +48,9 @@ public class ClassMustHaveAuthorRule extends AbstractAliCommentRule {
      * Immediately return after visiting class/interface/enum/annotation,
      * so that we don't need to deal with inner class/interface/enum/annotation declarations.
      *
-     * @param decl
-     * @param data
-     * @return
+     * @param decl node
+     * @param data ruleContext
+     * @return result
      */
     @Override
     public Object visit(ASTClassOrInterfaceDeclaration decl, Object data) {
